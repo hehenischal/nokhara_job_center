@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+ 
+
+   <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+        }
+    
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white; 
+            padding: 5px 12px; /* reduced padding */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            height: 60px; /* fixed navbar height */
+        }
+        
+        .logo img {
+            height: 36px; /* smaller logo */
+            width: auto; /* keep aspect ratio */
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+    
+        {% comment %} .logo img {
+            height: 48px;
+            width: 180px;
+            object-fit: contain;
+            cursor: pointer;
+        } {% endcomment %}
+    
+        .logo-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: black;
+            white-space: nowrap;
+        }
+    
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1px;
+            align-items: center;
+        }
+    
+        .nav-links li {
+            margin-left: 20px;
+        }
+    
+        .nav-links li:last-child {
+            margin-right: 20px;
+        }
+    
+        .nav-links a {
+            color: black; /* black text */
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+    
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 17px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid black; /* black border default */
+            background: transparent; /* transparent default */
+            color: black; /* default text color */
+        }
+    
+        .btn:hover {
+            background: #435099ff; 
+            color: white;         
+            border-color: #435099ff; 
+        }
+    
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 40px;
+        }
+    
+        .job-section {
+            margin: 30px 0;
+            
+        }
+    
+        .card-type {
+            margin: 8px 0 6px 20px;
+            font-size: 1rem;
+            color: #435099ff;
+            line-height: 1.2;
+            font-weight: 600;
+        }
+    
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-left: 20px;
+            margin-top:20px;
+        }
+    
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            width: 100px;
+            text-align: center;
+            
+            
+        }
+        .card {
+            font-size: 14px;
+        }
+        
+    
+        .hero {
+            background: linear-gradient(to right, #8a8faaff,  #697096);
+            color: white;
+            padding: 80px 40px;
+        }
+    
+        .hero-text h1 {
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+    
+        .hero-text p {
+            font-size: 20px;
+            margin-top: 0;
+        }
+    
+        .search {
+            display: flex;
+            gap: 10px;
+            padding: 30px;
+            background: white;
+            margin: -40px auto 60px;
+            
+            width: 80%;
+            box-shadow: 0 4px 20px rgba(11, 10, 10, 0.1);
+        }
+    
+        .search input {
+            flex: 1;
+            padding: 12px 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background-color: white;
+            color: black;
+        }
+    
+        .search button {
+            padding: 18px 35px;
+            font-size: 18px;
+            background: #697096;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+    
+        .btn-primary {
+            padding: 15px 35px;
+            font-size: 18px;
+            background-color: #697096;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+    
+        .btn-primary:hover {
+            background-color: #435099ff;
+        }
+    </style>
+    
+
+</head>
+<body>
+   
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <img src="static/images/logo.png" alt="Nokhara Job Center">
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#" class="btn btn-login">Login</a></li>
+            <li><a href="{% url 'register' %}
+                " class="btn btn-register">Register</a></li>
+        </ul>
+    </nav>
+
+   
+    <section class="hero">
+        <div class="hero-text">
+          <h1>Welcome to Nokhara Job Center</h1>
+          <p >Connecting job seekers with trusted employers.</p>
+          <button class="btn-primary">Browse Jobs</button>
+        </div>
+      </section>
+      
+      <section class="search">
+        <input type="text" placeholder="Job title or keyword">
+        <input type="text" placeholder="Location">
+        <button class="btn-primary">Search</button>
+      </section>
+
+    <section class="job-section">
+        <h2 class="card-type">Recently Added</h2>
+        <div class="cards-container">
+            <div class="card">
+                <h3>Google</h3>
+                <p>Software Engineer</p>
+            </div>
+            <div class="card">
+                <h3>Microsoft</h3>
+                <p>Backend Developer</p>
+            </div>
+            <div class="card">
+                <h3>Amazon</h3>
+                <p>DevOps Engineer</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="job-section">
+        <h2 class="card-type">Top Jobs</h2>
+        <div class="cards-container">
+            <div class="card">
+                <h3>Netflix</h3>
+                <p>Frontend Developer</p>
+            </div>
+            <div class="card">
+                <h3>Apple</h3>
+                <p>iOS Developer</p>
+            </div>
+        </div>
+    </section>
+  
+</body>
+</html>
