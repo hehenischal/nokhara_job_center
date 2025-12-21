@@ -1,0 +1,277 @@
+/* ================= BASE ================= */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+}
+
+/* ================= NAVBAR ================= */
+.custom-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  padding: 0 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 2000;
+}
+
+.logo img {
+  height: 48px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 8px 17px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 2px solid black;
+  background: transparent;
+  color: black;
+}
+
+.btn:hover {
+  background: #435099ff;
+  color: white;
+  border-color: #435099ff;
+}
+
+.btn-primary {
+  padding: 15px 35px;
+  font-size: 18px;
+  background-color: rgb(73, 87, 167);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #435099ff;
+}
+/* ================= HERO ================= */
+.hero {
+  margin-top: 64px;
+  background: linear-gradient(to right, #525ea1, #414e96);
+  color: white;
+  padding: 80px 40px;
+}
+
+.hero-text h1 {
+  font-size: 48px;
+}
+
+.hero-text p {
+  font-size: 18px;
+}
+
+/* ================= SEARCH ================= */
+.search {
+  display: flex;
+  gap: 10px;
+  padding: 30px;
+  background: white;
+  width: 80%;
+  margin: -40px auto 40px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.search input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.search button {
+  background: #435099;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+}
+
+/* ================= JOB CARDS ================= */
+.job-section {
+  margin: 30px 0;
+}
+
+  .card-type {
+        margin: 8px 0 6px 20px;
+        font-size: 1rem;
+        color: #435099ff;
+        line-height: 1.2;
+        font-weight: 600;
+      }
+
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-left: 20px;
+  margin-top: 20px;
+  
+}
+.card {
+  background: white;
+  padding: 16px;
+  width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+ .card {
+        font-size: 14px;
+      }
+  
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 64px;
+    right: 0;
+    flex-direction: column;
+    background: white;
+    width: 200px;
+    padding: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .search {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .hero-text h1 {
+    font-size: 32px;
+  }
+}
+/* ================= FOOTER ================= */
+
+.site-footer {
+  background-color: #444b53;
+  color: #ffffff;
+  padding: 40px 0 20px;
+  font-size: 14px;
+  margin-top: 80px;
+}
+
+.footer-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.footer-column h4 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #f9fafb;
+  font-weight: 600;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  color: #d1d5db;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.footer-column p {
+  margin-bottom: 10px;
+  color: #d1d5db;
+  line-height: 1.5;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #4b4e52;
+  margin-top: 30px;
+  padding-top: 15px;
+  color: #9ca3af;
+  font-size: 13px;
+}
+
+/* ================= FOOTER MOBILE ================= */
+
+@media (max-width: 576px) {
+
+  /* Make footer columns align in one row */
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    text-align: center;
+  }
+
+  /* Hide footer lists & text, show only titles */
+  .footer-column ul,
+  .footer-column p {
+    display: none;
+  }
+
+  /* Footer titles style */
+  .footer-column h4 {
+    font-size: 11px;
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+
+  /* Reduce footer padding */
+  .site-footer {
+    padding: 20px 0 10px;
+  }
+}
