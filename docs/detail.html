@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details - Job Center</title>
+    <link rel="stylesheet" href="job-detail.css">
+   <style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+
+
+.container {
+    display: flex;
+    max-width: 800px;
+    margin: 20px auto;
+    gap: 20px;
+}
+
+
+.job-detail {
+    flex: 2;
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.job-detail h2 {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.company {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.job-info h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #1E90FF;
+}
+
+.job-info ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.apply-btn {
+    display: inline-block;
+    background-color: #1E90FF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.apply-btn:hover {
+    background-color: #0b5fa5;
+}
+
+/* Sidebar */
+.sidebar {
+    flex: 1;
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 8px;
+    height: fit-content;
+}
+
+.sidebar h3 {
+    margin-bottom: 10px;
+    color: #1E90FF;
+}
+
+.sidebar ul {
+    list-style-type: square;
+    margin-left: 15px;
+}
+.job-meta p {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* space between icon and text */
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.job-meta svg {
+    min-width: 16px;
+    height: 16px;
+}
+
+
+   </style>
+
+
+</head>
+<body>
+  
+<main class="container">
+    <section class="job-detail">
+        <!-- Job Title and Company -->
+        <h2>Software Engineer</h2>
+        <p class="company">Google</p>
+
+        <!-- Job Meta Info -->
+        <div class="job-meta">
+            <p>
+                <!-- Location Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#364496" viewBox="0 0 16 16">
+                    <path d="M8 0C5.243 0 3 2.243 3 5c0 4.75 5 11 5 11s5-6.25 5-11c0-2.757-2.243-5-5-5zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/>
+                </svg>
+                Sanepa, Kathmandu
+            </p>
+            <p>
+                <!-- Salary Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#364496" viewBox="0 0 16 16">
+                    <path d="M8 0a8 8 0 1 0 8 8A8 8 0 0 0 8 0zm1 12H7v-2h2zm0-3H7V4h2z"/>
+                </svg>
+                NRs. 25,000 – 35,000
+            </p>
+            <p>
+                <!-- Briefcase Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#364496" viewBox="0 0 16 16">
+                    <path d="M6.5 0a.5.5 0 0 0-.5.5V2H2a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-4V.5a.5.5 0 0 0-.5-.5h-3zM3 3h10a1 1 0 0 1 1 1v1H2V4a1 1 0 0 1 1-1z"/>
+                </svg>
+                Full Time
+            </p>
+            <p>
+                <!-- Level Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#364496" viewBox="0 0 16 16">
+                    <path d="M8 0l8 16H0L8 0z"/>
+                </svg>
+                Mid Level
+            </p>
+            <p>
+                <!-- Users Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#364496" viewBox="0 0 16 16">
+                    <path d="M5.5 3a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5 0a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM0 13s1-1 8-1 8 1 8 1v2H0v-2z"/>
+                </svg>
+                Vacancy: 1
+            </p>
+            <p>
+                <!-- Clock Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#364496" viewBox="0 0 16 16">
+                    <path d="M8 0a8 8 0 1 0 8 8A8 8 0 0 0 8 0zm.5 4H7v5l4.25 2.52.5-.86-3.75-2.22V4z"/>
+                </svg>
+                Experience: More than 1 year
+            </p>
+        </div>
+        
+
+        <!-- Job Description -->
+        <div class="job-info">
+            <h3>Job Description</h3>
+            <p>
+                We are looking for a skilled Software Engineer to join our team.
+                You will work on exciting projects involving web development, cloud computing, and AI.
+            </p>
+
+            <!-- Requirements -->
+            <h3>Requirements</h3>
+            <ul>
+                <li>Bachelor’s degree in Computer Science or related field</li>
+                <li>Experience with Python, JavaScript, and React</li>
+                <li>Strong problem-solving skills</li>
+                <li>Good communication and teamwork</li>
+            </ul>
+
+            <!-- Benefits -->
+            <h3>Benefits</h3>
+            <ul>
+                <li>Health insurance</li>
+                <li>Paid leave</li>
+                <li>Flexible working hours</li>
+            </ul>
+
+            <!-- Apply Button -->
+            <button class="apply-btn">Apply Now</button>
+        </div>
+    </section>
+</main>
+
+
+      
+    </main>
+
+   
+</body>
+</html>
