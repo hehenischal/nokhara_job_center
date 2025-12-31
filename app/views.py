@@ -8,3 +8,9 @@ def home(request):
 def register(request):
       return render(request, "visitor/register.html")
 
+def detail(request):
+     return render(request,"detail.html")
+
+
+def faq(request):
+     return render(request,"faq.html")
