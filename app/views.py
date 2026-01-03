@@ -17,7 +17,7 @@ def faq(request):
 
 
 def login(request):
-     return render(request,"login.html")
+     return render(request,"visitor/login.html")
 
 def search(request):
      return render(request,'visitor/search.html')

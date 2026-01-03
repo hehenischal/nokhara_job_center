@@ -9,7 +9,11 @@
   <div class="menu-toggle" id="menuToggle">☰</div>
 
   <ul class="nav-links" id="navLinks">
-    <li><a href="#" class="btn">Login</a></li>
+    <li><a href="{% url 'login'%}" class="btn">Login</a></li>
     <li><a href="{% url 'register' %}" class="btn">Register</a></li>
+    <li>
+      <a href="{% url 'post_job' %}" class="btn">Post Job</a>
+    </li>
+    
   </ul>
 </nav>
