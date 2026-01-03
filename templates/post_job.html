@@ -1,8 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <title>Post a Job - Employer Portal</title>
     <style>
         * {
@@ -10,21 +12,21 @@
             padding: 0;
             box-sizing: border-box;
             font-family: Arial, sans-serif;
-        }
-        
-        body {
+          }
+      
+          body {
             background-color: #f0f2f5;
             color: #333;
             line-height: 1.6;
-        }
+          }
         
         .job-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
+            padding: 80px 20px 20px; /* top padding = navbar height + spacing */
+          }
+      
+          header {
             background-color: white;
             padding: 20px;
             border-radius: 8px;
@@ -33,7 +35,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
+          }
         
         .logo {
             font-size: 24px;
@@ -41,12 +43,12 @@
             color: #1a73e8;
         }
         
-        .nav-links {
+        .job-links {
             display: flex;
             gap: 20px;
         }
         
-        .nav-links a {
+        .job-links a {
             text-decoration: none;
             color: #5f6368;
             font-weight: 500;
@@ -55,11 +57,11 @@
             transition: background-color 0.2s;
         }
         
-        .nav-links a:hover {
+        .job-links a:hover {
             background-color: #f1f3f4;
         }
         
-        .nav-links a.active {
+        .job-links a.active {
             color: #1a73e8;
             background-color: #e8f0fe;
         }
@@ -194,7 +196,7 @@
             border-top: 1px solid #e8eaed;
         }
         
-        .btn-primary {
+        .btn-primary-post {
             background-color: #1a73e8;
             color: white;
             border: none;
@@ -206,7 +208,7 @@
             transition: background-color 0.2s;
         }
         
-        .btn-primary:hover {
+        .btn-primary-post:hover {
             background-color: #0d62d9;
         }
         
@@ -266,7 +268,7 @@
                 flex-direction: column;
             }
             
-            .nav-links {
+            .job-links {
                 display: none;
             }
             
@@ -281,13 +283,13 @@
     </style>
 </head>
 <body>
+    {% include 'nav.html' %}
     <div class="job-container">
         <header>
             <div class="logo">JobPortal Employers</div>
-            <div class="nav-links">
+            <div class="job-links">
                 <a href="#" class="active">Post Job</a>
-                <a href="#">Dashboard</a>
-                <a href="#">Applications</a>
+              
                 <a href="#">Account</a>
             </div>
         </header>
@@ -388,7 +390,7 @@
                 </div>
                 
                 <div class="form-actions">
-                    <button type="submit" class="btn-primary" id="submitBtn">Post Job</button>
+                    <button type="submit" class="btn-primary-post" id="submitBtn">Post Job</button>
                 </div>
             </div>
             
@@ -406,7 +408,7 @@
             </div>
         </div>
     </div>
-
+     {% include 'footer.html' %}
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const expiryDate = new Date();
