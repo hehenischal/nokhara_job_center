@@ -1,9 +1,12 @@
+
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Search Jobs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <style>
         :root {
             --primary: #1e40af;
@@ -92,7 +95,7 @@
             font-size: 16px;
         }
         
-        .btn {
+        .btn-search {
             padding: 14px 30px;
             background: var(--primary);
             color: white;
@@ -103,7 +106,7 @@
             transition: background 0.3s;
         }
         
-        .btn:hover {
+        .btn-search:hover {
             background: #1a3a9d;
         }
         
@@ -410,6 +413,7 @@
     </style>
 </head>
 <body>
+    {% include 'nav.html'%}
    
     <div class="page-header">
         <h1>Find Your Dream Job</h1>
@@ -421,7 +425,7 @@
             <form class="search-form">
                 <input type="text" placeholder="Job title or keyword" value="Software Engineer">
                 <input type="text" placeholder="Location" value="Kathmandu">
-                <button type="submit" class="btn">Search</button>
+                <button type="submit" class="btn-search">Search</button>
             </form>
             <div class="filter-chips">
                 <span class="filter-chip active">All Jobs</span>
@@ -451,7 +455,7 @@
                     <label class="filter-option"><input type="checkbox"> Senior Level</label>
                 </div>
 
-                <button class="btn" style="width:100%;" onclick="applyFilters()">Apply Filters</button>
+                <button class="btn-search" style="width:100%;" onclick="applyFilters()">Apply Filters</button>
             </div>
 
             <div class="results">
