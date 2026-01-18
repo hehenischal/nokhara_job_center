@@ -41,6 +41,24 @@
         .sidebar-title { font-size: 18px; color: #202124; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid #e8eaed; }
         .tips-list { list-style-type: none; }
         .tips-list li { padding: 10px 0; border-bottom: 1px solid #f0f0f0; color: #5f6368; }
+        
+        @media (max-width: 768px) {
+            .content-container {
+                flex-direction: column;
+            }
+            
+            .job-links {
+                display: none;
+            }
+            
+            .form-row {
+                flex-direction: column;
+            }
+            
+            .form-group {
+                min-width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -126,6 +144,7 @@
                             <div class="form-group"><input type="text" name="benefits[]" class="form-control" placeholder="e.g. Health Insurance"></div>
                             <div class="form-group"><input type="text" name="benefits[]" class="form-control" placeholder="e.g. Paid Time Off"></div>
                         </div>
+                     
                     </div>
                     
                     <div class="form-actions">
