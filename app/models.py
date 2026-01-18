@@ -39,6 +39,7 @@ class Job(models.Model):
     salary_range = models.CharField(max_length=100, blank=True)
     description = tinymce_models.HTMLField()
     expiry_date = models.DateField()
+    views_count = models.PositiveIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

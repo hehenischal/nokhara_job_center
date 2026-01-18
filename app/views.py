@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib import messages
 from django.http import JsonResponse
+from django.db.models import Count
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login as auth_login,logout
 from .models import Review,Job,JobRequirement,JobBenefit,JobSeekerApplication
@@ -21,14 +22,21 @@ def home(request):
             )
             return redirect('home')  
 
-   
+
+    top_jobs = Job.objects.all().order_by('-views_count')[:4]
+
+    
     reviews = Review.objects.all()
     recent_jobs = Job.objects.order_by('-id')[:5]
+
+
     context = {
         "reviews": reviews,
-        "recent_jobs": recent_jobs
+        "recent_jobs": recent_jobs,
+        "top_jobs": top_jobs,  
     }
 
+    return render(request, "visitor/home.html", context)
     return render(request, "visitor/home.html", context)
 
 def register(request):
@@ -78,7 +86,8 @@ def detail(request, job_id):
     job = get_object_or_404(Job, id=job_id)
     requirements = JobRequirement.objects.filter(job=job)
     benefits = JobBenefit.objects.filter(job=job)
-
+    job.views_count += 1
+    job.save()
     if request.method == 'POST':
         full_name = request.POST.get('full_name', '').strip()
         email = request.POST.get('email', '').strip()
