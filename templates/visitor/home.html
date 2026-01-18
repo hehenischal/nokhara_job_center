@@ -531,22 +531,23 @@
     </section>
     
 
- 
-      <section class="layout job-section">
-        <h2 class="card-type">Top Jobs</h2>
-        <div class="cards-container">
+    <section class="layout job-section">
+      <h2 class="card-type">Top Jobs</h2>
+      <div class="cards-container">
+        {% for job in top_jobs %}
           <div class="card">
-            <h3>Netflix</h3>
-            <p>Frontend Developer</p>
-            <a href="detail.html" class="view-link">View</a>
+            <h3>{{ job.title }}</h3>
+            <p>{{ job.location }}</p>
+            
+            
+    
+            <a href="{% url 'detail' job.id %}" class="view-link">View</a>
           </div>
-          <div class="card">
-            <h3>Apple</h3>
-            <p>iOS Developer</p>
-            <a href="detail.html" class="view-link">View</a>
-          </div>
-        </div>
-      </section>
+        {% empty %}
+          <p>No jobs viewed yet.</p>
+        {% endfor %}
+      </div>
+    </section>
 
      
       <section class="client-say">
