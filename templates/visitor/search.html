@@ -106,7 +106,7 @@
 
     <nav class="custom-navbar">
         <a href="{% url 'home' %}" class="logo">
-          <img src="{% static 'images/logo.png' %}" alt="Nokhara Job Center" />
+          <img src="{% static 'images/logo.png' %}" alt="pokhara Job Center" />
         </a>
         <div class="menu-toggle" id="menuToggle">☰</div>
       
@@ -184,7 +184,7 @@
                         <span>{{ job.job_type }}</span>
                         <span>{{ job.created_at|timesince }} ago</span>
                     </div>
-                    <p class="job-desc">{{ job.description|truncatewords:20 }}</p>
+                    <p class="job-desc">{{ job.description|truncatechars_html:150|safe }}</p>
                     <div class="job-footer">
                         <div class="tags">
                             {% for tag in job.tags %}
@@ -252,7 +252,7 @@
         <div class="footer-column">
             <h4>ABOUT US</h4>
             <ul>
-                <li><a href="#">About Nokhara Job Center</a></li>
+                <li><a href="#">About pokhara Job Center</a></li>
                 <li><a href="#">Facebook</a></li>
                 <li><a href="#">Twitter</a></li>
                 <li><a href="#">LinkedIn</a></li>
@@ -263,12 +263,11 @@
             <h4>CONTACT US</h4>
             <p>Pokhara-8,Nagdhunga</p>
             <p>📞 +977 1 33333</p>
-            <p>✉️ info@nokharajobcenter.com</p>
+            <p>✉️ info@pokharajobcenter.com</p>
         </div>
     </div>
     <div class="footer-bottom layout">
-        <p>© 2025 Nokhara Job Center. All Rights Reserved.</p>
-    </div>
+        <p>© 2025 pokhara Job Center. All Rights Reserved.</p> </div>
 </footer>
 
 <script>

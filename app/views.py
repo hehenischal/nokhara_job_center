@@ -1,10 +1,9 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib import messages
 from django.http import JsonResponse
-from django.db.models import Count
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login as auth_login,logout
-from .models import Review,Job,JobRequirement,JobBenefit,JobSeekerApplication
+from .models import Review,Job,JobRequirement,JobBenefit,JobSeekerApplication, Category
 from django.contrib.auth import get_user_model
 # Create your views here.
 User = get_user_model()
@@ -111,10 +110,9 @@ def detail(request, job_id):
     })
 
 
-   
 
 def faq(request):
-     return render(request,"faq.html")
+    return render(request,"faq.html")
 
 def login_view(request):
     if request.method == "POST":
@@ -147,8 +145,6 @@ def logout_view(request):
 
 def search(request):
     jobs = Job.objects.all()
-
-
     keyword = request.GET.get('q')
     location = request.GET.get('location')
 
@@ -196,6 +192,8 @@ def post_job(request):
     
     if request.method == "POST":
         title = request.POST.get('jobTitle')
+        category_id = request.POST.get('category')
+        category = Category.objects.get(id=category_id) if category_id else None
         location = request.POST.get('location')
         job_type = request.POST.get('jobType')
         salary = request.POST.get('salaryRange')
@@ -209,16 +207,15 @@ def post_job(request):
             job_type=job_type,
             salary_range=salary,
             expiry_date=expiry_date,
-            description=description
+            description=description,
+            category=category
         )
 
-       
         requirements = request.POST.getlist('requirements[]')
         for req in requirements:
             if req.strip():
                 JobRequirement.objects.create(job=job, text=req)
 
-      
         benefits = request.POST.getlist('benefits[]')
         for ben in benefits:
             if ben.strip():
@@ -230,3 +227,15 @@ def post_job(request):
     return render(request, 'post_job.html')
   
 
+
+
+def category_detail(request, category_slug):
+    # Get the category object
+    category = get_object_or_404(Category, slug=category_slug)
+
+    # Pre-fill request.GET with category as keyword
+    request.GET = request.GET.copy()
+    request.GET['q'] = category.name
+
+    # Reuse your search function logic
+    return search(request)

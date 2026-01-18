@@ -71,6 +71,18 @@
                                 <input type="text" id="jobTitle" class="form-control" name="jobTitle" placeholder="e.g. Software Engineer" required>
                             </div>
                         </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="category">Category *</label>
+                                <select id="category" name="category" class="form-control" required>
+                                    <option value="">Select category</option>
+                                    {% for category in categories %}
+                                        <option value="{{ category.id }}">{{ category.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
                         
                         <div class="form-row">
                             <div class="form-group">
