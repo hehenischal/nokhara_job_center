@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-iov!brhx1tz+1$y6engi8(qdun*=1mw=vojr0*4ooa#lezio#&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['hehenischal.pythonanywhere.com', ]
+ALLOWED_HOSTS = ['*', ]
 
 
 # Application definition
@@ -63,7 +63,7 @@ ROOT_URLCONF = 'nokhara_job_center.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -149,9 +149,17 @@ AUTH_USER_MODEL = 'app.User'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME_REQUIRED = True
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+# Authentication methods allowed at login
+ACCOUNT_LOGIN_METHODS = {"username", "email"}
+SOCIALACCOUNT_LOGIN_ON_GET = True
+
+# Fields shown and required during signup
+ACCOUNT_SIGNUP_FIELDS = [
+    "username*",
+    "email*",
+    "password1*",
+    "password2*",
+]
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 SOCIALACCOUNT_PROVIDERS = {
@@ -161,9 +169,9 @@ SOCIALACCOUNT_PROVIDERS = {
         'APP': {
             'client_id': config('CLIENT_ID'),
             'secret': config('SECRET_KEY'),
-            'key': ''
         }
     }
 }
+
 
 
