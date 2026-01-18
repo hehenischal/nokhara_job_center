@@ -184,14 +184,14 @@
                         <span>{{ job.job_type }}</span>
                         <span>{{ job.created_at|timesince }} ago</span>
                     </div>
-                    <p class="job-desc">{{ job.description|truncatewords:20 }}</p>
+                    <p class="job-desc">{{ job.description|safe }}</p>
                     <div class="job-footer">
                         <div class="tags">
                             {% for tag in job.tags %}
                                 <span class="tag">{{ tag }}</span>
                             {% endfor %}
                         </div>
-                        <a href="#" class="visit-btn">View</a>
+                        <a href="{% url 'detail' job.id %}" class="visit-btn">View</a>
                     </div>
                 </div>
                 {% empty %}
