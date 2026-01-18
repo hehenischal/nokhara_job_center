@@ -10,6 +10,6 @@ fi
 
 git add .
 git commit -m "$commit_message"
-git push
+git push origin main
 
 echo "Changes pushed successfully!"
